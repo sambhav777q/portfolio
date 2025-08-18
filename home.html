@@ -130,13 +130,41 @@
     <section id="contact">
         <h2>Contact Me</h2>
         <p>Let’s connect for collaborations, projects, or just a tech talk.</p>
-        <form id="contactForm" action="contact.php" method="POST">
+        <form action="contact.php" method="POST">
             <input type="text" name="name" placeholder="Your Name" required />
             <input type="email" name="email" placeholder="Your Email" required />
             <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn">Send</button>
+            <div id="contact-status" style="margin-top:10px;"></div>
+            <div id="contact-popup" style="display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;align-items:center;justify-content:center;">
+                <div style="background:#fff;padding:2rem 2.5rem;border-radius:1rem;box-shadow:0 4px 32px #0003;text-align:center;max-width:90vw;">
+                    <span id="popup-message" style="font-size:1.2rem;color:#111;">Message sent successfully!</span><br>
+                    <button id="close-popup" style="margin-top:1.2rem;padding:0.5rem 1.5rem;font-size:1rem;border-radius:0.5rem;border:none;background:#111;color:#fff;cursor:pointer;">OK</button>
+                </div>
+            </div>
         </form>
-        <div id="contactResult" style="margin-top:10px;"></div>
+    <script>
+    // AJAX contact form submission
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('#contact form');
+        const statusDiv = document.getElementById('contact-status');
+        const popup = document.getElementById('contact-popup');
+        const closePopup = document.getElementById('close-popup');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Show popup
+                popup.style.display = 'flex';
+                form.reset();
+            });
+        }
+        if (closePopup) {
+            closePopup.addEventListener('click', function() {
+                popup.style.display = 'none';
+            });
+        }
+    });
+    </script>
     </section>
 
     <footer>
