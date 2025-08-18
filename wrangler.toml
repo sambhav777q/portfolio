@@ -3,6 +3,6 @@ main = "functions/index.js"
 compatibility_date = "2023-07-01"
 
 [[d1_databases]]
-binding = "contact_db"
+binding = "DB"
 database_name = "contact_db"
 database_id = "eaa1225b-6135-46aa-b13b-ed1458fdfcf7"
