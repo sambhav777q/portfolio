@@ -130,12 +130,13 @@
     <section id="contact">
         <h2>Contact Me</h2>
         <p>Let’s connect for collaborations, projects, or just a tech talk.</p>
-        <form action="contact.php" method="POST">
+        <form id="contactForm" action="contact.php" method="POST">
             <input type="text" name="name" placeholder="Your Name" required />
             <input type="email" name="email" placeholder="Your Email" required />
             <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn">Send</button>
         </form>
+        <div id="contactResult" style="margin-top:10px;"></div>
     </section>
 
     <footer>
