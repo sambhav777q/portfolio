@@ -1,3 +1,4 @@
+
 // Dark mode toggle
 const toggleBtn = document.getElementById('darkModeToggle');
 if (toggleBtn) {
@@ -15,3 +16,27 @@ if (toggleBtn) {
         }
     });
 }
+
+// AJAX contact form submission
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const contactResult = document.getElementById('contactResult');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            fetch('contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                contactResult.innerHTML = data;
+                contactForm.reset();
+            })
+            .catch(error => {
+                contactResult.innerHTML = 'An error occurred. Please try again.';
+            });
+        });
+    }
+});
